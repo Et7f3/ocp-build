@@ -39,12 +39,12 @@ for:
     clone_folder: 'C:\projects\ocp-build'
     install:
       - C:\cygwin\setup-x86.exe -qnNdO -R C:\cygwin -s http://cygwin.mirror.constant.com -l C:/cygwin/var/cache/setup -P opam,mingw64-x86_64-gcc-core
-      - opam init
-      - opam switch create ocaml-base-compiler.4.07.1
+      - C:\cygwin\bash.exe -lc opam init
+      - C:\cygwin\bash.exe -lc opam switch create ocaml-base-compiler.4.07.1
     build_script:
-      - opam pin add my-package .
-      - opam install my-package
-      - opam remove my-package
+      - C:\cygwin\bash.exe -lc opam pin add my-package .
+      - C:\cygwin\bash.exe -lc opam install my-package
+      - C:\cygwin\bash.exe -lc opam remove my-package
   -
     matrix:
       only:
