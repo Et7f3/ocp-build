@@ -5,14 +5,14 @@ environment:
 version: 1.0.{build}
 
 image:
-- Visual Studio 2019
-- Ubuntu
+  - Visual Studio 2019
+  - Ubuntu
 
 configuration: Release
 
 platform:
-- x86
-- x64
+  - x86
+  - x64
 
 clone_folder: C:\projects\ocp-build
 
@@ -21,15 +21,15 @@ branches:
     - master
 
 init:
-- sh: opam switch create ocaml-base-compiler.4.07.1
+  - sh: opam switch create ocaml-base-compiler.4.07.1
 
 install:
-- npm i esy@0.5.8
-- "echo %CYG_ROOT%\\setup-x86.exe -qnNdO -R %CYG_ROOT% -s http://cygwin.mirror.constant.com -l C:/cygwin/var/cache/setup -P rsync -P patch -P diffutils -P curl -P make -P unzip -P git -P m4 -P perl -P mingw64-x86_64-gcc-core"
+  - npm i esy@0.5.8
+  - "echo %CYG_ROOT%\\setup-x86.exe -qnNdO -R %CYG_ROOT% -s http://cygwin.mirror.constant.com -l C:/cygwin/var/cache/setup -P rsync -P patch -P diffutils -P curl -P make -P unzip -P git -P m4 -P perl -P mingw64-x86_64-gcc-core"
 
 
 build_script:
-- set
-- "%CYG_BASH% '${APPVEYOR_BUILD_FOLDER}/appveyor-build.sh'"
+  - set
+  - "%CYG_BASH% '${APPVEYOR_BUILD_FOLDER}/appveyor-build.sh'"
 
 deploy: off
