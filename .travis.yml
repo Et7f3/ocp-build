@@ -15,8 +15,10 @@ cache:
 script: sh -ex ./ci/travis-ci.sh && echo true
 env:
   - OCAML_VERSION=ocaml-system
+  - OCAML_VERSION=ocaml-base-compiler.4.02.3
   - OCAML_VERSION=ocaml-base-compiler.4.03.0
   - OCAML_VERSION=ocaml-base-compiler.4.04.0
   - OCAML_VERSION=ocaml-base-compiler.4.05.0
+  - OCAML_VERSION=ocaml-base-compiler.4.06.0
   - OCAML_VERSION=ocaml-base-compiler.4.06.1
   - OCAML_VERSION=ocaml-base-compiler.4.07.1
