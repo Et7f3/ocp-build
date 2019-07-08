@@ -28,8 +28,6 @@ for:
 
   build_script:
   - echo Ubuntu build script
-
-for:
 -
   matrix:
     only:
