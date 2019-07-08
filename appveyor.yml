@@ -20,16 +20,22 @@ branches:
   only:
     - master
 
-init:
-  - sh: opam switch create ocaml-base-compiler.4.07.1
+for:
+-
+  matrix:
+    only:
+      - image: Ubuntu
 
-install:
-  - echo npm i esy@0.5.8
-  - "echo %CYG_ROOT%\\setup-x86.exe -qnNdO -R %CYG_ROOT% -s http://cygwin.mirror.constant.com -l C:/cygwin/var/cache/setup -P rsync -P patch -P diffutils -P curl -P make -P unzip -P git -P m4 -P perl -P mingw64-x86_64-gcc-core"
+  build_script:
+  - echo Ubuntu build script
 
+for:
+-
+  matrix:
+    only:
+      - image: Visual Studio 2019
 
-build_script:
-  - echo set
-  - echo "%CYG_BASH% '${APPVEYOR_BUILD_FOLDER}/appveyor-build.sh'"
+  install:
+    - npm i esy@0.5.8
 
 deploy: off
