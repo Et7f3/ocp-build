@@ -1,32 +1,61 @@
 environment:
   ACYG_ROOT: 'C:\cygwin'
   ACYG_BASH: '%CYG_ROOT%\bin\bash -lc'
+
 version: '1.0.{build}'
+
 image:
-  - 'Visual Studio 2019'
   - Ubuntu
+  - 'Visual Studio 2017'
+  - 'Visual Studio 2019'
+
 configuration: Release
+
 platform:
   - x86
   - x64
-clone_folder: 'C:\projects\ocp-build'
+
 branches:
   only:
     - master
+
 for:
   -
     matrix:
       only:
         -
           image: Ubuntu
+    clone_folder: '/home/appveyor/projects/ocp-build'
+    install:
+      - apt-get update
+      - apt-get install opam
+      - opam init
+      - opam switch create ocaml-base-compiler.4.07.1
     build_script:
-      - 'echo Ubuntu build script'
+      - opam pin add my-package .
+      - opam install my-package
+      - opam remove my-package
+  -
+    matrix:
+      only:
+        -
+          image: 'Visual Studio 2017'
+    clone_folder: 'C:\projects\ocp-build'
+    install:
+      - "%CYG_ROOT%\\setup-x86.exe -qnNdO -R %CYG_ROOT% -s http://cygwin.mirror.constant.com -l C:/cygwin/var/cache/setup -P rsync -P patch -P diffutils -P curl -P make -P unzip -P git -P m4 -P perl -P mingw64-x86_64-gcc-core"
+    build_script:
+      - %CYG_BASH% ./ci/appveyor-build.sh
   -
     matrix:
       only:
         -
           image: 'Visual Studio 2019'
+    clone_folder: 'C:\projects\ocp-build'
     install:
       - 'npm i esy@0.5.8'
+    build_script:
+      - esy b
+
 build: off
+
 deploy: off
