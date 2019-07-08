@@ -52,8 +52,10 @@ for:
           image: 'Visual Studio 2019'
     clone_folder: 'C:\projects\ocp-build'
     install:
-      - 'npm i esy@0.5.8'
+      - 'npm install -g esy@0.5.8'
     build_script:
+      - where esy
+      - where npm
       - esy b
 
 build: off
