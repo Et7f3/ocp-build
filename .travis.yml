@@ -5,15 +5,14 @@ addons:
     sources:
     - avsm
     packages:
-    - npm
     - ocaml
     - opam
     - ocaml-native-compilers
-install: sh -ex ./autoconf/travis-install.sh
+install: sh -ex ./ci/travis-install.sh
 cache:
   directories:
   - ${HOME}/.opam
-script: sh -ex ./autoconf/travis-ci.sh && echo true
+script: sh -ex ./ci/travis-ci.sh && echo true
 env:
   - OCAML_VERSION=ocaml-system
   - OCAML_VERSION=ocaml-base-compiler.4.03.0
@@ -21,4 +20,3 @@ env:
   - OCAML_VERSION=ocaml-base-compiler.4.05.0
   - OCAML_VERSION=ocaml-base-compiler.4.06.1
   - OCAML_VERSION=ocaml-base-compiler.4.07.1
-  - OCAML_VERSION=ocaml-base-compiler.4.08.0
