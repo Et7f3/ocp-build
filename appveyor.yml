@@ -1,11 +1,5 @@
 version: '1.0.{build}'
 
-environment:
-  matrix:
-      image: 'Visual Studio 2017'
-  CYG_ROOT: "C:\\cygwin"
-  CYG_BASH: "%CYG_ROOT%\\bin\\bash -lc"
-
 image:
   - Ubuntu
   - 'Visual Studio 2017'
@@ -42,6 +36,9 @@ for:
       only:
         -
           image: 'Visual Studio 2017'
+    environment:
+      CYG_ROOT: "C:\\cygwin"
+       CYG_BASH: "%CYG_ROOT%\\bin\\bash -lc"
     clone_folder: 'C:\projects\ocp-build'
     install:
       - "%CYG_ROOT%\\setup-x86.exe -qnNdO -R %CYG_ROOT% -s http://cygwin.mirror.constant.com -l C:/cygwin/var/cache/setup -P opam,mingw64-x86_64-gcc-core"
