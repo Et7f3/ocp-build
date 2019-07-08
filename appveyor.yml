@@ -23,8 +23,8 @@ for:
           image: Ubuntu
     clone_folder: '/home/appveyor/projects/ocp-build'
     install:
-      - apt-get update
-      - apt-get install opam
+      - sudo apt-get update
+      - sudo apt-get install opam
       - opam init
       - opam switch create ocaml-base-compiler.4.07.1
     build_script:
