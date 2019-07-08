@@ -8,6 +8,10 @@
 
 opam-version: "1.2"
 maintainer: "Fabrice Le Fessant <fabrice.le_fessant@ocamlpro.com>"
+synopsis: "Build-system for ocaml"
+description: """
+Build-system for general use with builtin OCaml rule.
+"""
 authors: [
   "Fabrice Le Fessant <fabrice.le_fessant@ocamlpro.com>"
 ]
@@ -42,7 +46,8 @@ available: [ocaml-version >= "4.02.3"]
 depends: [
      "cmdliner" {>= "1.0" }
      "ocamlfind"
-     "re" {>= "1.7.3" }
+     "re" {= "1.7.3" }
+     "seq" { "base" }
 ]
 
 (**************************************************************)
