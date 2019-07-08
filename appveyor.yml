@@ -23,8 +23,8 @@ for:
           image: Ubuntu
     clone_folder: '/home/appveyor/projects/ocp-build'
     install:
-      - sudo apt-get update
-      - sudo apt-get install opam
+      - sudo apt-get --assume-yes update
+      - sudo apt-get --assume-yes install opam
       - opam init
       - opam switch create ocaml-base-compiler.4.07.1
     build_script:
@@ -54,10 +54,8 @@ for:
     install:
       - 'npm install -g esy@0.5.8'
     build_script:
-      - echo salut
-      - where esy
-      - where npm
-      - esy b
+      - esy install
+      - esy build
 
 build: off
 
