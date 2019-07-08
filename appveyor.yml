@@ -54,6 +54,7 @@ for:
     install:
       - 'npm install -g esy@0.5.8'
     build_script:
+      - echo salut
       - where esy
       - where npm
       - esy b
