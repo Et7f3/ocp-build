@@ -1,39 +1,32 @@
 environment:
-  ACYG_ROOT: "C:\\cygwin"
-  ACYG_BASH: "%CYG_ROOT%\\bin\\bash -lc"
-
-version: 1.0.{build}
-
+  ACYG_ROOT: 'C:\cygwin'
+  ACYG_BASH: '%CYG_ROOT%\bin\bash -lc'
+version: '1.0.{build}'
 image:
-  - Visual Studio 2019
+  - 'Visual Studio 2019'
   - Ubuntu
-
 configuration: Release
-
 platform:
   - x86
   - x64
-
-clone_folder: C:\projects\ocp-build
-
+clone_folder: 'C:\projects\ocp-build'
 branches:
   only:
     - master
-
 for:
--
-  matrix:
-    only:
-      - image: Ubuntu
-
-  build_script:
-  - echo Ubuntu build script
--
-  matrix:
-    only:
-      - image: Visual Studio 2019
-
-  install:
-    - npm i esy@0.5.8
-
+  -
+    matrix:
+      only:
+        -
+          image: Ubuntu
+    build_script:
+      - 'echo Ubuntu build script'
+  -
+    matrix:
+      only:
+        -
+          image: 'Visual Studio 2019'
+    install:
+      - 'npm i esy@0.5.8'
+build: off
 deploy: off
