@@ -26,6 +26,7 @@ for:
       only:
         - image: Ubuntu
     clone_folder: '/home/appveyor/projects/ocp-build'
+    cache: /home/appveyor/.opam
     install:
       - sudo add-apt-repository ppa:avsm/ppa
       - sudo apt-get --assume-yes update
@@ -45,6 +46,7 @@ for:
       only:
         - image: Visual Studio 2017
     clone_folder: 'C:\projects\ocp-build'
+    cache: '%USERPROFILE%\.opam'
     install:
       - set
       - C:\cygwin\setup-x86.exe -qnNdO -R C:\cygwin -s http://cygwin.mirror.constant.com -l C:/cygwin/var/cache/setup -P opam,mingw64-x86_64-gcc-core
@@ -59,6 +61,7 @@ for:
       only:
         - image: Visual Studio 2019
     clone_folder: 'C:\projects\ocp-build'
+    cache: '%USERPROFILE%\.opam'
     install:
       - set
       - 'npm install -g esy@0.5.8'
