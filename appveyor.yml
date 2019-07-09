@@ -28,7 +28,6 @@ for:
           image: Ubuntu
     clone_folder: '/home/appveyor/projects/ocp-build'
     install:
-      - set
       - sudo add-apt-repository ppa:avsm/ppa
       - sudo apt-get --assume-yes update
       - sudo apt-get --assume-yes install opam
@@ -62,6 +61,10 @@ for:
       - esy install
       - esy build
 
+clone_depth: 5
+
 build: off
+
+test: off
 
 deploy: off
