@@ -28,6 +28,7 @@ for:
           image: Ubuntu
     clone_folder: '/home/appveyor/projects/ocp-build'
     install:
+      - set
       - sudo add-apt-repository ppa:avsm/ppa
       - sudo apt-get --assume-yes update
       - sudo apt-get --assume-yes install opam
@@ -43,6 +44,7 @@ for:
           image: 'Visual Studio 2017'
     clone_folder: 'C:\projects\ocp-build'
     install:
+      - set
       - C:\cygwin\setup-x86.exe -qnNdO -R C:\cygwin -s http://cygwin.mirror.constant.com -l C:/cygwin/var/cache/setup -P opam,mingw64-x86_64-gcc-core
       - C:\cygwin\bin\bash.exe -lc 'opam init --yes --switch=ocaml-base-compiler.4.07.1'
     build_script:
@@ -56,6 +58,7 @@ for:
           image: 'Visual Studio 2019'
     clone_folder: 'C:\projects\ocp-build'
     install:
+      - set
       - 'npm install -g esy@0.5.8'
     build_script:
       - esy install
