@@ -1,8 +1,9 @@
 version: '1.0.{build}'
 
 image:
-- Visual Studio 2019
+- Ubuntu
 - Visual Studio 2017
+- Visual Studio 2019
 
 environment:
   matrix:
@@ -20,11 +21,9 @@ branches:
     - master
 
 for:
-  -
-    matrix:
+  - matrix:
       only:
-        -
-          image: Ubuntu
+        - image: Ubuntu
     clone_folder: '/home/appveyor/projects/ocp-build'
     install:
       - set
@@ -36,11 +35,9 @@ for:
       - opam pin --yes add my-package .
       - opam install --yes my-package
       - opam remove --yes my-package
-  -
-    matrix:
+  - matrix:
       only:
-        -
-          image: 'Visual Studio 2017'
+        - image: Visual Studio 2017
     clone_folder: 'C:\projects\ocp-build'
     install:
       - set
@@ -50,11 +47,9 @@ for:
       - C:\cygwin\bin\bash.exe -lc 'eval $(opam env); opam pin --yes add my-package .'
       - C:\cygwin\bin\bash.exe -lc 'eval $(opam env); opam install --yes my-package'
       - C:\cygwin\bin\bash.exe -lc 'eval $(opam env); opam remove --yes my-package'
-  -
-    matrix:
+  - matrix:
       only:
-        -
-          image: 'Visual Studio 2019'
+        - image: Visual Studio 2019
     clone_folder: 'C:\projects\ocp-build'
     install:
       - set
