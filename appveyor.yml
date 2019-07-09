@@ -47,7 +47,7 @@ for:
     install:
       - set
       - C:\cygwin\setup-x86.exe -qnNdO -R C:\cygwin -s http://cygwin.mirror.constant.com -l C:/cygwin/var/cache/setup -P opam,mingw64-x86_64-gcc-core
-      - C:\cygwin\bin\bash.exe -lc 'opam init --yes --switch=ocaml-base-compiler.4.07.1'
+      - C:\cygwin\bin\bash.exe -lc 'opam init --yes --compiler=ocaml-base-compiler.4.07.1 --switch=ocaml-base-compiler.4.07.1'
     build_script:
       - C:\cygwin\bin\bash.exe -lc 'eval $(opam env); opam pin --yes add my-package .'
       - C:\cygwin\bin\bash.exe -lc 'eval $(opam env); opam install --yes my-package'
