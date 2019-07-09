@@ -37,6 +37,7 @@ for:
     build_script:
       - opam pin --yes add my-package .
       - opam install --yes my-package
+      - ls $(opam config list | grep prefix | grep -o "/.*")/lib || true
       - ls $(opam config list | grep prefix | grep -o "/.*")/lib/my-package || true
       - ls $(opam config list | grep prefix | grep -o "/.*")/lib/ocp-build || true
       - opam remove --yes my-package
