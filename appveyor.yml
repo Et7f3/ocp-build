@@ -26,7 +26,7 @@ for:
       - sudo add-apt-repository ppa:avsm/ppa
       - sudo apt-get --assume-yes update
       - sudo apt-get --assume-yes install opam
-      - opam init --yes --switch=ocaml-base-compiler.4.07.1
+      - opam init --yes --compiler=ocaml-base-compiler.4.07.1 --switch=ocaml-base-compiler.4.07.1
     build_script:
       - opam pin --yes add my-package .
       - opam install --yes my-package
