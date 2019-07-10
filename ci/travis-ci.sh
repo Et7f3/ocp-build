@@ -13,6 +13,9 @@ opam --git-version
 
 PREFIX=$HOME/.opam/$OCAML_VERSION
 
+opam list
 opam pin add my-package .
+opam list
 opam install my-package
+opam list
 opam remove my-package
