@@ -25,10 +25,12 @@ OCP_BUILD_DSTDIR=$(OBUILD_DSTDIR)/ocp-build
 OCPLIB_NAMES=debug lang unix file system config compat
 
 CMDLINER_DIR := $(shell ocamlfind query cmdliner)
+SEQ_DIR := $(shell ocamlfind query seq)
 RE_DIR := $(shell ocamlfind query re)
-EXTERNAL_INCLUDES=    -I ${CMDLINER_DIR} -I ${RE_DIR}
+EXTERNAL_INCLUDES=    -I ${CMDLINER_DIR} -I ${SEQ_DIR} -I ${RE_DIR}
 EXTERNAL_LIBS=\
   ${CMDLINER_DIR}/cmdliner.cmxa \
+  ${SEQ_DIR}/seq.cmxa \
   ${RE_DIR}/re.cmxa
 
 INCLUDES=$(foreach lib, $(OCPLIB_NAMES), -I $($(lib)_SRCDIR)) \
@@ -58,7 +60,7 @@ OCPLIB_LANG= $(lang_SRCDIR)/ocpList.ml $(lang_SRCDIR)/ocpString.ml	\
     $(lang_SRCDIR)/ocpArray.ml \
     $(lang_SRCDIR)/ocpDigest.ml $(lang_SRCDIR)/ocpToposort.ml	\
     $(lang_SRCDIR)/ocamllexer.ml $(lang_SRCDIR)/ocpGenlex.ml		\
-    $(lang_SRCDIR)/ocpSubst.ml $(lang_SRCDIR)/ocpReuse.ml 
+    $(lang_SRCDIR)/ocpSubst.ml $(lang_SRCDIR)/ocpReuse.ml
 
 OCPLIB_UNIX= $(unix_SRCDIR)/minUnix.ml $(unix_SRCDIR)/onlyUnix.ml	\
     $(unix_SRCDIR)/onlyWin32.ml
