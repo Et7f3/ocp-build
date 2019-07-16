@@ -10,4 +10,5 @@ opam --version
 opam --git-version
 
 opam init
-opam switch create $OCAML_VERSION || true
+opam switch $OCAML_VERSION
+

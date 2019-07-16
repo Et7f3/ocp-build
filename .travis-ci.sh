@@ -16,3 +16,4 @@ PREFIX=$HOME/.opam/$OCAML_VERSION
 opam pin add my-package .
 opam install my-package
 opam remove my-package
+
