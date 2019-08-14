@@ -64,6 +64,7 @@ libs/ocaml-compiler-clean/parsing/parser.ml
 libs/ocaml-compiler-clean/parsing/parser.mli
 _esy
 esy.lock
+node_modules
 tools/ocp-ide/emacs/ocp-ide.el
 tools/ocp-ide/emacs/tmp.el
 autom4te.cache
