@@ -10,6 +10,10 @@
       "PATH": {
         "val": "#{self.bin : $PATH}",
         "scope": "global"
+      },
+      "OCP_BUILD": {
+        "val": "ocp-build.asm",
+        "scope": "global"
       }
     },
     "dependencies": {
